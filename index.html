@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+
+  <title>Gabriel Prates | Talks</title>
+  <meta property="og:title" content="Gabriel Prates" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="description" content="Talks" />
+  <meta property="og:description" content="Talks" />
+  <link rel="canonical" href="http://gabrielprates.com/talks" />
+  <meta property="og:url" content="http://gabrielprates.com/talks" />
+  <meta property="og:site_name" content="Gabriel Prates" />
+  <script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"WebSite","name":"Gabriel Prates","headline":"Gabriel Prates","description":"Talks","url":"http://gabrielprates.com/talks/"}
+  </script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#406b63">
+
+  <title>Gabriel Prates</title>
+
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="http://gabrielprates.com/">
+        <img src="http://gabrielprates.com/assets/perfil.jpg" alt="Gabriel Prates" class="site-title__image" />
+        Gabriel Prates
+      </a>
+    </div>
+  </header>
+
+  <div class="page-content">
+    <div class="wrapper">
+      <div class="home">
+        <h1 class="page-heading">Talks</h1>
+
+        <ul id="talks-list">
+        </ul>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript">
+const talks = [
+    { title: "Animações com CSS3", url: "/css3-animations", flag: "brazil" }
+  , { title: "Controlando seu projeto com GIT", url: "/git-basic", flag: "brazil" }
+];
+
+const ul = document.querySelector('#talks-list');
+
+(() => {
+  const html = talks.map((talk) => {
+    return `
+      <li>
+        <a href='.${talk.url}' title='${talk.title}' class='talk-link'>
+          <span class='img'><img src='.${talk.url}/thumb.png'></span>
+          <span class='title'>
+            <img class='flag' src='./_flags/${talk.flag}.svg'>
+            ${talk.title}
+          </span>
+        </a>
+      </li>
+    `;
+  });
+
+  ul.innerHTML = html.join('');
+})();
+
+</script>
+</body>
+</html>

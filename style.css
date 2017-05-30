@@ -1,0 +1,138 @@
+/** Reset some basic elements */
+body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure { margin: 0; padding: 0; }
+
+/** Basic styling */
+body { font: 400 16px/1.75 "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif; color: #232323; background-color: #f9f9f9; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal; }
+
+/** Set `margin-bottom` to maintain vertical rhythm */
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure, .highlight { margin-bottom: 22.5px; }
+
+/** Images */
+img { max-width: 100%; vertical-align: middle; }
+
+/** Figures */
+figure > img { display: block; }
+
+figcaption { font-size: 14px; }
+
+/** hr */
+hr { border: 0; border-bottom: 2px solid #e8e8e8; margin-bottom: 30px; }
+
+/** Lists */
+ul, ol { margin: 0px; list-style: none; }
+
+li > ul, li > ol { margin-bottom: 0; }
+
+/** Headings */
+h1, h2, h3, h4, h5, h6 { font-weight: 400; }
+
+/** Links */
+a { color: #7BB0A6; text-decoration: none; }
+a:hover { color: #fff; text-decoration: none; }
+
+/** Blockquotes */
+blockquote { color: #828282; border-left: 5px solid #e8e8e8; padding-left: 18px; padding-top: 8px; padding-bottom: 12px; font-size: 18px; font-style: italic; }
+blockquote > :last-child { margin-bottom: 0; }
+
+/** Code formatting */
+pre, code { font-size: 15px; border: 1px solid #e8e8e8; border-radius: 3px; background-color: #343434; color: #999; }
+
+code { padding: 1px 5px; background-color: #f9f2f4; border-color: #f9bfd0; color: #c7254e; }
+
+pre { padding: 8px 12px; overflow-x: auto; }
+pre > code { background: none; color: inherit; border: 0; padding-right: 0; padding-left: 0; }
+
+/** Wrapper */
+.wrapper { max-width: -webkit-calc(800px - (30px * 2)); max-width: calc(800px - (30px * 2)); margin-right: auto; margin-left: auto; padding-right: 30px; padding-left: 30px; }
+@media screen and (max-width: 800px) { .wrapper { max-width: -webkit-calc(800px - (30px)); max-width: calc(800px - (30px)); padding-right: 15px; padding-left: 15px; } }
+
+/** Clearfix */
+.wrapper:after, .footer-col-wrapper:after { content: ""; display: table; clear: both; }
+
+/** Icons */
+.icon > svg { display: inline-block; width: 16px; height: 16px; vertical-align: middle; }
+.icon > svg path { fill: #828282; }
+
+/** Site header */
+.site-header { background-image: url(http://gabrielprates.com/assets/adwaita-day.jpg); background-position: top center; background-repeat: repeat; background-attachment: fixed; border-top: 5px solid #406b63; border-bottom: 1px solid #ccc; min-height: 56px; position: relative; }
+
+.site-title { font-size: 26px; font-weight: 600; line-height: 56px; letter-spacing: -1px; margin-bottom: 0; float: left; text-shadow: 1px 1px 1px #406b63; }
+.site-title, .site-title:hover, .site-title:visited { color: #fbfcfc; }
+.site-title:hover, .site-title:focus { text-decoration: none; }
+.site-title__image { width: 40px; border-radius: 12345678px; margin: 8px 10px 0 0; float: left; box-shadow: 0 1px 2px #406b63; }
+
+/** Page content */
+.page-content { padding: 30px 0; }
+
+.page-heading { font-size: 20px; }
+
+.post-list { margin-left: 0; list-style: none; }
+.post-list > li { margin-bottom: 30px; border-bottom: 1px solid #e8e8e8; padding-bottom: 30px; }
+
+.post-meta { font-size: 14px; color: #828282; }
+
+.post-link { display: block; font-size: 24px; }
+
+/** Posts */
+.post-header { margin-bottom: 30px; }
+
+.post-title { font-size: 42px; letter-spacing: -1px; line-height: 1; }
+
+.post-content { margin-bottom: 30px; }
+
+.full-width { width: 100%; }
+
+
+
+/** Talk list */
+
+#talks-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+#talks-list li {
+  margin-bottom: 30px;
+}
+.talk-link {
+  color: #fff;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+.talk-link .img {
+  display: block;
+}
+.talk-link .img img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease-in-out;
+}
+.talk-link .title {
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.talk-link .title .flag {
+  width: 50px;
+  height: auto;
+  margin-right: 5px;
+}
+
+@media (min-width: 720px) {
+  #talks-list {
+    flex-wrap: nowrap;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  #talks-list li {
+    width: 50%;
+    margin: 0 10px 10px;
+  }
+}
+
+.talk-link:hover .img img {
+  transform: scale(1.1);
+}
