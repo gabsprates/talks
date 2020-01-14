@@ -1,4 +1,4 @@
-const sum = (a, b) => a + b;
+const sum = require("./sum").sum;
 
 describe("sum function", () => {
   describe("passing cases", () => {
