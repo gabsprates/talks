@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: User should render without errors 1`] = `"<div class=\\"user\\"><strong class=\\"name\\">prates</strong><div class=\\"github\\">gabsprates</div></div>"`;
