@@ -1,11 +1,13 @@
+const defaultDomain = 'liferay.cloud';
+
 const request = {
-  getPlaylist: () =>
-    Array(8)
-      .fill(null)
-      .map((_, i) => ({
-        track: i,
-        title: `song ${i}`
-      }))
+  fetchServiceDomains: () => ({
+    default: defaultDomain,
+    custom:
+      Array(4)
+        .fill(defaultDomain)
+        .map((domain, i) => domain.replace('.', `-custom-${i}`))
+  })
 };
 
 module.exports = request;

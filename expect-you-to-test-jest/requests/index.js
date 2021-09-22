@@ -1,5 +1,5 @@
 module.exports = {
-  getPlaylist() {
-    return [];
+  fetchServiceDomains() {
+    return null;
   }
 };
