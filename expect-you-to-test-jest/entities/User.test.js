@@ -1,12 +1,7 @@
 const User = require("./User");
+const { userData } = require("./mocks");
 
 describe("Entity: User", () => {
-  const userData = {
-    id: "a1b2c3d4",
-    name: "Gabriel Prates",
-    email: "gabriel.prates@not.spam"
-  };
-
   describe("creation", () => {
     it("should create a user", () => {
       const user = new User(userData);
