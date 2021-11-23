@@ -1,4 +1,5 @@
 class User {
+  /** @param {UserData} user */
   constructor({ id, name, email }) {
     this.id = id;
     this.name = name;
