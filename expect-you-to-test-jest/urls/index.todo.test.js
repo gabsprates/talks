@@ -1,11 +1,11 @@
 // what do you want to test
 // be clear and straight to the point
-test("should return empty array if there is no domains", () => {
+test.skip("should return empty array if there is no domains", () => {
   // AAA
 });
 
 // give context to a group of tests
-describe("getListOfAllUrls", () => {
+describe.skip("getListOfAllUrls", () => {
   describe("with no domains", () => {
     it("should return an empty array", () => {
       /* AAA */
