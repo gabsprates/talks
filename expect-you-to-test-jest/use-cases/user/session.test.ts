@@ -1,12 +1,13 @@
-const { userData } = require("../../entities/mocks");
-const User = require("../../entities/User");
-const UserSession = require("./session");
+import UserSession from "./session";
+
+import User from "../../entities/User";
+import { userData } from "../../entities/mocks";
+import { UserService } from "../../typeDefs/services/UserService";
 
 describe("Use cases: user/session", () => {
   const invalidEmail = "invalid";
 
-  /** @type {UserService} */
-  const mockedUserService = {
+  const mockedUserService: UserService = {
     authenticate: async email => {
       if (email === invalidEmail) {
         throw new Error(invalidEmail);

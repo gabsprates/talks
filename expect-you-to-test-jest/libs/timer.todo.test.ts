@@ -1,4 +1,4 @@
-const { defineTimeout } = require("./timer");
+import { defineTimeout } from "./timer";
 
 describe("Lib: defineTimeout", () => {
   describe("running function", () => {

@@ -1,5 +1,5 @@
-const User = require("./User");
-const { userData } = require("./mocks");
+import User from "./User";
+import { userData } from "./mocks";
 
 describe("Entity: User", () => {
   describe("creation", () => {
