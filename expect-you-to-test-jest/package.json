@@ -11,6 +11,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
     "babel-jest": "^27.3.1",
     "jest": "^27.2.1",
     "prettier": "1.19.1"
