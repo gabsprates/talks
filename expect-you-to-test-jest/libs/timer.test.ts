@@ -1,6 +1,8 @@
-const { defineTimeout } = require("./timer");
+import { defineTimeout } from "./timer";
 
 describe("Lib: defineTimeout", () => {
+  const milliseconds = 0;
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
@@ -13,7 +15,7 @@ describe("Lib: defineTimeout", () => {
     it("should run function after time out", () => {
       const fn = jest.fn();
 
-      defineTimeout(fn);
+      defineTimeout(fn, milliseconds);
 
       expect(fn).not.toHaveBeenCalled();
 
@@ -27,7 +29,7 @@ describe("Lib: defineTimeout", () => {
     it("should not run function after aborting it", () => {
       const fn = jest.fn();
 
-      const abortTimeout = defineTimeout(fn);
+      const abortTimeout = defineTimeout(fn, milliseconds);
 
       abortTimeout();
 

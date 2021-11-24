@@ -1,6 +1,11 @@
+import { UserData } from "../typeDefs/data/User";
+
 class User {
-  /** @param {UserData} user */
-  constructor({ id, name, email }) {
+  id: string;
+  name: string;
+  email: string;
+
+  constructor({ id, name, email }: UserData) {
     this.id = id;
     this.name = name;
     this.email = email;
@@ -23,4 +28,4 @@ class User {
   }
 }
 
-module.exports = User;
+export default User;
