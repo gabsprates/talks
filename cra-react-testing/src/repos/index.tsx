@@ -18,7 +18,6 @@ export const Repositories = (props: { username: string }) => {
         }
       })
       .catch((e) => {
-        console.error(e);
         if (mounted) {
           setRepos([]);
           setLoading(false);
@@ -38,7 +37,7 @@ export const Repositories = (props: { username: string }) => {
         <React.Fragment>
           <h3>repositories {repos.length}</h3>
           <ul>
-            {repos.map((repo, index) => (
+            {repos.map((repo) => (
               <li key={repo.id} className={style.repo}>
                 <strong>{repo.name}</strong>
                 <p>{repo.description}</p>
