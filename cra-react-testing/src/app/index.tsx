@@ -12,11 +12,18 @@ export const App = () => {
       <h1>"Zone Of Front-Enders"</h1>
 
       <div className={style.columns}>
-        <List users={users} onClick={(user) => setUser(user)} />
-        <DevDetails user={user} />
-      </div>
+        <div className={style.sidebar}>
+          <List users={users} onClick={(user) => setUser(user)} />
 
-      {user && <button onClick={() => setUser(null)}>clear user</button>}
+          <hr />
+
+          {user && <button onClick={() => setUser(null)}>clear user</button>}
+        </div>
+
+        <div>
+          <DevDetails user={user} />
+        </div>
+      </div>
     </section>
   );
 };
