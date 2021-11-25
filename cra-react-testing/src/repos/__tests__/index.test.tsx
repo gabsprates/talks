@@ -4,11 +4,6 @@ import { Repositories } from "../index";
 
 jest.mock("../../services/github");
 
-const repos = [
-  { id: 1234, name: "teste 1", description: "é bem discreto" },
-  { id: 5678, name: "teste 2", description: "é bem discreto também" },
-];
-
 describe("Component: Repos", () => {
   afterAll(() => {
     jest.restoreAllMocks();
@@ -20,9 +15,8 @@ describe("Component: Repos", () => {
 
     render(<Repositories username="gabsprates" />);
 
-    expect(
-      await screen.findByText(/no repositories found/i)
-    ).toBeInTheDocument();
+    const notFound = await screen.findByText(/no repositories found/i);
+    expect(notFound).toBeInTheDocument();
   });
 
   it("should render when request fail", async () => {
@@ -33,21 +27,27 @@ describe("Component: Repos", () => {
 
     render(<Repositories username="gabsprates" />);
 
-    expect(
-      await screen.findByText(/no repositories found/i)
-    ).toBeInTheDocument();
+    const notFound = await screen.findByText(/no repositories found/i);
+    expect(notFound).toBeInTheDocument();
   });
 
   it("should render with a list of repositories", async () => {
+    const repos = [
+      { id: 1234, name: "test 1", description: "little description here" },
+      { id: 5678, name: "test 2", description: "little description here too" },
+    ];
+
     const github = require("../../services/github");
     jest.spyOn(github, "getUserRepositories").mockResolvedValue(repos);
 
     render(<Repositories username="gabsprates" />);
 
-    expect(
-      await screen.findByText(`repositories ${repos.length}`)
-    ).toBeInTheDocument();
+    const heading = await screen.findByRole("heading", {
+      name: `repositories ${repos.length}`,
+    });
+    expect(heading).toBeInTheDocument();
 
-    expect(screen.getAllByRole("listitem")).toHaveLength(repos.length);
+    const listItems = screen.getAllByRole("listitem");
+    expect(listItems).toHaveLength(repos.length);
   });
 });
