@@ -4,8 +4,16 @@
 
   .name {
     color: #d66;
+    display: block;
+    margin-bottom: 5px;
   }
   .github {
     color: #424242;
+  }
+
+  &:hover {
+    .name {
+      text-decoration: underline 5px;
+    }
   }
 }
