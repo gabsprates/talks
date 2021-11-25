@@ -15,9 +15,12 @@ export const App = () => {
         <div className={style.sidebar}>
           <List users={users} onClick={(user) => setUser(user)} />
 
-          <hr />
-
-          {user && <button onClick={() => setUser(null)}>clear user</button>}
+          {user && (
+            <>
+              <hr />
+              <button onClick={() => setUser(null)}>clear user</button>
+            </>
+          )}
         </div>
 
         <div>

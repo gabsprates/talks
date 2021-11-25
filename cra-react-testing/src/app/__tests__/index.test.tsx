@@ -1,35 +1,37 @@
 import React from "react";
 import { App } from "../index";
-import { render, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 jest.mock("../../services/github");
 
 describe("Component: App", () => {
   it("should render without errors", () => {
-    const wrapper = render(<App />);
-    expect(wrapper.container.outerHTML).toMatchSnapshot();
+    render(<App />);
+
+    const title = screen.getByRole("heading", { name: /zone/i });
+    expect(title).toBeInTheDocument();
   });
 
-  it("should open dev details and clean after click the button", () => {
-    const wrapper = render(<App />);
+  it("should show dev details and hide after click the button", async () => {
+    render(<App />);
 
-    let button = wrapper.queryByText("clear user");
-    expect(button).toBeNull();
+    let button = screen.queryByText("clear user");
+    expect(button).not.toBeInTheDocument();
 
-    let user = wrapper.getAllByRole("item-user")[0];
-    fireEvent.click(user);
+    const listUsers = screen.getAllByRole("listitem");
+    userEvent.click(listUsers[0]);
 
-    expect(wrapper.getByText("dev details"));
+    const devDetails = screen.getByRole("heading", { name: "dev details" });
+    expect(devDetails).toBeInTheDocument();
 
-    user = wrapper.getAllByRole("item-user")[1];
-    fireEvent.click(user);
+    const notFound = await screen.findByText(/no repositories/i);
+    expect(notFound).toBeInTheDocument();
 
-    expect(wrapper.getByText("dev details"));
+    button = screen.getByRole("button", { name: "clear user" });
+    userEvent.click(button);
 
-    button = wrapper.getByText("clear user");
-    fireEvent.click(button);
-
-    expect(wrapper.queryByText("dev details")).toBeNull();
-    expect(wrapper.queryByText("clear user")).toBeNull();
+    expect(devDetails).not.toBeInTheDocument();
+    expect(button).not.toBeInTheDocument();
   });
 });
