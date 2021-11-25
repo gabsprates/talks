@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Component: List should render a fill list 1`] = `"<div><aside><ul><li><div class=\\"user\\"><strong class=\\"name\\">Albertinin Santos</strong><div class=\\"github\\">albertininm</div></div></li><li><div class=\\"user\\"><strong class=\\"name\\">Bruno Carvalho</strong><div class=\\"github\\">bcarvalho89</div></div></li><li><div class=\\"user\\"><strong class=\\"name\\">Gabriel Prates</strong><div class=\\"github\\">gabsprates</div></div></li><li><div class=\\"user\\"><strong class=\\"name\\">Jared Gorski</strong><div class=\\"github\\">jaredgorski</div></div></li><li><div class=\\"user\\"><strong class=\\"name\\">Moisés Menezes</strong><div class=\\"github\\">mgmenezes</div></div></li><li><div class=\\"user\\"><strong class=\\"name\\">Ygor Costa</strong><div class=\\"github\\">ygorcosta</div></div></li><li><div class=\\"user\\"><strong class=\\"name\\">Mateus Castro</strong><div class=\\"github\\">MateusCastro</div></div></li></ul></aside></div>"`;
-
-exports[`Component: List should render an empty list 1`] = `"<div><div>nenhum dev encontrado 😰</div></div>"`;

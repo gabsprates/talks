@@ -1,35 +1,38 @@
 import React from "react";
 import { List } from "../index";
 import { users } from "../../data/users";
-import { render, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 describe("Component: List", () => {
   it("should render an empty list", async () => {
-    const wrapper = render(<List users={[]} onClick={jest.fn()} />);
-    expect(wrapper.container.outerHTML).toMatchSnapshot();
-    expect(wrapper.queryByText("nenhum dev encontrado"));
+    render(<List users={[]} onClick={jest.fn()} />);
+
+    const notFound = screen.getByText(/no developers found/);
+    expect(notFound).toBeInTheDocument();
   });
 
   it("should render a fill list", () => {
-    const wrapper = render(<List users={users} onClick={jest.fn()} />);
+    render(<List users={users} onClick={jest.fn()} />);
 
-    expect(wrapper.container.outerHTML).toMatchSnapshot();
-    expect(wrapper.container.querySelectorAll("li").length).toEqual(
-      users.length
-    );
+    const listItems = screen.getAllByRole("listitem");
+    expect(listItems).toHaveLength(users.length);
   });
 
-  it("should call spy function onClick li", () => {
+  it("should call spy function on li click", () => {
     const spy = jest.fn();
-    const wrapper = render(<List users={users} onClick={spy} />);
+    render(<List users={users} onClick={spy} />);
 
     expect(spy).not.toHaveBeenCalled();
 
-    const itens = wrapper.getAllByRole("item-user");
+    const listItems = screen.getAllByRole("listitem");
+    listItems.forEach((userLi) => userEvent.click(userLi));
 
-    itens.forEach(userLi => {
-      fireEvent.click(userLi);
+    expect(spy).toHaveBeenCalledTimes(listItems.length);
+
+    users.forEach((user, index) => {
+      const nthCall = index + 1;
+      expect(spy).toHaveBeenNthCalledWith(nthCall, user);
     });
-    expect(spy).toHaveBeenCalledTimes(itens.length);
   });
 });

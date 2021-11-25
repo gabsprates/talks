@@ -9,12 +9,12 @@ export const List = (props: {
     <aside>
       <ul>
         {props.users.map((user) => (
-          <li key={user.name} onClick={() => props.onClick(user)}>
+          <li key={user.github} onClick={() => props.onClick(user)}>
             <User {...user} />
           </li>
         ))}
       </ul>
     </aside>
   ) : (
-    <div>nenhum dev encontrado 😰</div>
+    <div>no developers found 😰</div>
   );
