@@ -1,3 +1,1 @@
-module.exports = {
-  getUserRepositories: () => Promise.resolve([])
-};
+export const getUserRepositories = async () => [];
