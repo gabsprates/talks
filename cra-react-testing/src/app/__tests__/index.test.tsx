@@ -1,6 +1,6 @@
 import React from "react";
 import { App } from "../index";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 jest.mock("../../services/github");
@@ -22,11 +22,13 @@ describe("Component: App", () => {
     const listUsers = screen.getAllByRole("listitem");
     userEvent.click(listUsers[0]);
 
+    await waitFor(() => {
+      const loading = screen.queryByText(/loading/);
+      expect(loading).not.toBeInTheDocument();
+    });
+
     const devDetails = screen.getByRole("heading", { name: "dev details" });
     expect(devDetails).toBeInTheDocument();
-
-    const notFound = await screen.findByText(/no repositories/i);
-    expect(notFound).toBeInTheDocument();
 
     button = screen.getByRole("button", { name: "clear user" });
     userEvent.click(button);
