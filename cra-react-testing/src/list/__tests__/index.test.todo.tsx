@@ -1,4 +1,4 @@
-describe("Component: List", () => {
+describe.skip("Component: List", () => {
   it("should render an empty list", () => {});
 
   it("should render a fill list", () => {});
