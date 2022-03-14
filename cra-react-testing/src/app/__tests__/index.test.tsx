@@ -13,10 +13,10 @@ describe("Component: App", () => {
     expect(title).toBeInTheDocument();
   });
 
-  it("should show dev details and hide after click the button", async () => {
+  it("should show dev details and hide the details after click 'clear' button", async () => {
     render(<App />);
 
-    let button = screen.queryByText("clear user");
+    let button = screen.queryByRole("button", { name: "clear user" });
     expect(button).not.toBeInTheDocument();
 
     const listUsers = screen.getAllByRole("listitem");
